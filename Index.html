@@ -1,4 +1,6 @@
-<title>SF4 → TSMC N02 functional cell mapping — team reference</title>
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>SF4 to TSMC N02 functional cell mapping - team reference</title>
 <style>
 :root{
   --ground:#F5F5F3; --surface:#FFFFFF; --sunk:#ECECE8; --hair:#E1E1DC;
@@ -124,10 +126,10 @@ footer b{color:var(--ink)} footer code{color:var(--ink)}
 </style>
 <div class="wrap">
 <header>
-  <p class="eyebrow">team reference · SF4 → TSMC N02 · 24 Aug 2026</p>
-  <h1>SF4 → TSMC N02 functional cell mapping</h1>
-  <p class="lede">Every <b>functional</b> standard cell instantiated in <code>quasar_top</code> — 6,356 cell types
-  across 447 function roots, 1,635,084,961 flat instances — resolved to its TSMC N02 equivalent.
+  <p class="eyebrow">team reference | SF4 to TSMC N02 | 24 Aug 2026</p>
+  <h1>SF4 to TSMC N02 functional cell mapping</h1>
+  <p class="lede">Every <b>functional</b> standard cell instantiated in <code>quasar_top</code> - 6,356 cell types
+  across 447 function roots, 1,635,084,961 flat instances - resolved to its TSMC N02 equivalent.
   <span style="color:var(--sam);font-weight:600">SF4 names teal</span>,
   <span style="color:var(--tsmc);font-weight:600">N02 names plum</span>. Click any cell name to copy it.</p>
 </header>
@@ -135,22 +137,22 @@ footer b{color:var(--ink)} footer code{color:var(--ink)}
 <div class="howto">
   <h3>How to use this page</h3>
   <ol>
-    <li><b>Looking up one function?</b> Stay on <b>By function</b> — 447 rows, one per SF4 root, with the drive
+    <li><b>Looking up one function?</b> Stay on <b>By function</b> - 447 rows, one per SF4 root, with the drive
     range and Vt flavours present in the design. This is the day-to-day lookup.</li>
-    <li><b>Need the exact instance name?</b> Switch to <b>By cell</b> — all 6,356 full cell names with their
+    <li><b>Need the exact instance name?</b> Switch to <b>By cell</b> - all 6,356 full cell names with their
     constructed N02 counterpart.</li>
     <li><b>Always check the confidence chip.</b> <span class="pill c-exact">exact</span> is safe to substitute.
     <span class="pill c-likely">likely</span> needs a datasheet check.
     <span class="pill c-approx">approx</span> and <span class="pill c-gap">gap</span> need a truth-table or
     pin-level review before you rely on them.</li>
-    <li><b>Fill, decap, antenna and macros are deliberately excluded</b> — they are inserted by the target
+    <li><b>Fill, decap, antenna and macros are deliberately excluded</b> - they are inserted by the target
     technology's ChipFinish flow, not ported. This page is the port scope, not the whole netlist.</li>
   </ol>
 </div>
 
 <section>
   <h2>Coverage</h2>
-  <p class="note">All 447 function roots resolve — nothing is unmapped. The N02 target assumed throughout is
+  <p class="note">All 447 function roots resolve - nothing is unmapped. The N02 target assumed throughout is
   <code>bwph130</code> / <code>pnpn</code> / <code>3p48cpd</code>, the closest single-height analogue to
   SF4 <code>S6P25T</code>.</p>
   <div class="kpi">
@@ -169,10 +171,10 @@ footer b{color:var(--ink)} footer code{color:var(--ink)}
       <div style="width:0.65%;background:var(--gp-bar)"></div>
     </div>
     <div class="leg">
-      <span><i style="background:var(--ex-bar)"></i>exact — direct rename, same function</span>
-      <span><i style="background:var(--lk-bar)"></i>likely — check datasheet</span>
-      <span><i style="background:var(--ap-bar)"></i>approx — verify truth table / pins</span>
-      <span><i style="background:var(--gp-bar)"></i>gap — no single-cell N02 target</span>
+      <span><i style="background:var(--ex-bar)"></i>exact - direct rename, same function</span>
+      <span><i style="background:var(--lk-bar)"></i>likely - check datasheet</span>
+      <span><i style="background:var(--ap-bar)"></i>approx - verify truth table / pins</span>
+      <span><i style="background:var(--gp-bar)"></i>gap - no single-cell N02 target</span>
     </div>
   </div>
 </section>
@@ -187,7 +189,7 @@ footer b{color:var(--ink)} footer code{color:var(--ink)}
       <span class="fig">29.7 % of instances</span>
       <p><code>MV1…MV8</code> M1-variants (16.7 %), <code>PV</code> placement-variable (7.2 %) and the
       <code>POK</code> pin-optimization prefix (5.6 %) resolve to the plain base function. Pin-access and
-      placement intent — the reason those cells exist — is lost. Expect different routability and congestion.</p>
+      placement intent - the reason those cells exist - is lost. Expect different routability and congestion.</p>
     </div>
     <div class="card">
       <h4>Gate-length axis disappears</h4>
@@ -209,15 +211,15 @@ footer b{color:var(--ink)} footer code{color:var(--ink)}
 <section>
   <h2>Vt retarget</h2>
   <p class="note">SF4's four Vt flavours rank-map onto N02's. This is an ordering by threshold, not an electrical
-  equivalence — absolute Vt and leakage differ between nodes. N02's <code>lvtll</code> and <code>ulvtll</code>
+  equivalence - absolute Vt and leakage differ between nodes. N02's <code>lvtll</code> and <code>ulvtll</code>
   low-leakage flavours are unreachable from an SF4 netlist.</p>
   <div class="tw"><table>
     <thead><tr><th>SF4 track + Vt</th><th>N02 target</th><th class="num">functional instances</th><th class="num">share</th></tr></thead>
     <tbody>
-      <tr><td class="sf">S6P25TSL — slvt</td><td class="n2">ULVT</td><td class="num">1,154,203,072</td><td class="num">36.9 %</td></tr>
-      <tr><td class="sf">S6P25TL — lvt</td><td class="n2">LVT</td><td class="num">1,027,625,893</td><td class="num">32.9 %</td></tr>
-      <tr><td class="sf">S6P25TR — rvt</td><td class="n2">SVT</td><td class="num">944,078,291</td><td class="num">30.2 %</td></tr>
-      <tr><td class="sf">S6P25TUL — ulvt</td><td class="n2">ELVT</td><td class="num">1,950</td><td class="num">&lt; 0.01 %</td></tr>
+      <tr><td class="sf">S6P25TSL - slvt</td><td class="n2">ULVT</td><td class="num">1,154,203,072</td><td class="num">36.9 %</td></tr>
+      <tr><td class="sf">S6P25TL - lvt</td><td class="n2">LVT</td><td class="num">1,027,625,893</td><td class="num">32.9 %</td></tr>
+      <tr><td class="sf">S6P25TR - rvt</td><td class="n2">SVT</td><td class="num">944,078,291</td><td class="num">30.2 %</td></tr>
+      <tr><td class="sf">S6P25TUL - ulvt</td><td class="n2">ELVT</td><td class="num">1,950</td><td class="num">&lt; 0.01 %</td></tr>
     </tbody>
   </table></div>
   <p class="note" style="margin-top:11px">Shares are over all instances including fill; fill carries a Vt flavour
@@ -248,7 +250,7 @@ footer b{color:var(--ink)} footer code{color:var(--ink)}
 </section>
 
 <footer>
-  <p><b>Scope.</b> Functional standard cells only — combinational, sequential, clock, tie, spare, level shifter.
+  <p><b>Scope.</b> Functional standard cells only - combinational, sequential, clock, tie, spare, level shifter.
   Excluded: <code>FILLSGCAP*</code>/<code>ECOFILLSGCAP*</code> fill and decap (38 types, 1.489 B instances),
   <code>ANTENNA</code> (2 types), and 119 hard macros. Those are inserted or instantiated against the target
   technology, not translated cell-for-cell.</p>
@@ -257,7 +259,7 @@ footer b{color:var(--ink)} footer code{color:var(--ink)}
   Function mapping from <code>SF4_to_N02_stdcell_mapping.tsv</code> (125 rows).
   SF4 geometry from <code>SF4LPP_20260424_H200_H254/S6P25T/FE-Common/LEF</code>.
   N02 cell names from the <code>n02-docs</code> MCP server (<code>tcbn02p_bwph130pnpnl3p48cpd_*</code>, v110a/110b).</p>
-  <p><b>Files</b> in <code>/proj_pd_blr_ps/user_dev/PV/sf4/qsr/</code> —
+  <p><b>Files</b> in <code>/proj_pd_blr_ps/user_dev/PV/sf4/qsr/</code> -
   <code>quasar_top_SF4_to_N02_mapped.tsv</code> (all rows incl. fill, with per-cell areas),
   <code>SF4_to_N02_stdcell_mapping.md</code> / <code>.pptx</code> / <code>.confluence.xml</code>
   (the underlying function mapping and its caveats).</p>
@@ -297,7 +299,7 @@ function rowHtml(r){
   if(mode==='root') return `<tr>
     <td class="num">${fmt(r[0])}</td>
     <td class="sf copyable" data-c="${esc(r[1])}">${esc(r[1])}</td>
-    <td class="n2 copyable" data-c="${esc(r[2])}">${r[2]?esc(r[2]):'<span style="color:var(--ink3);font-weight:400">— none</span>'}</td>
+    <td class="n2 copyable" data-c="${esc(r[2])}">${r[2]?esc(r[2]):'<span style="color:var(--ink3);font-weight:400">- none</span>'}</td>
     <td><span class="pill c-${r[3]}">${r[3]}</span></td>
     <td class="num m">${r[4]}</td>
     <td class="m">${esc(r[5])}</td>
@@ -309,7 +311,7 @@ function rowHtml(r){
   return `<tr>
     <td class="num">${fmt(r[0])}</td>
     <td class="sf copyable" data-c="${esc(r[1])}">${esc(r[1])}</td>
-    <td class="n2 copyable" data-c="${esc(r[2])}">${r[2]?esc(r[2]):'<span style="color:var(--ink3);font-weight:400">—</span>'}</td>
+    <td class="n2 copyable" data-c="${esc(r[2])}">${r[2]?esc(r[2]):'<span style="color:var(--ink3);font-weight:400">-</span>'}</td>
     <td><span class="pill c-${r[3]}">${r[3]}</span></td>
     <td class="m">${esc(r[4])}</td>
     <td class="m" style="color:var(--ink3)">${esc(r[5])}</td>
