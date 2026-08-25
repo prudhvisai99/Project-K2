@@ -158,10 +158,10 @@ footer b{color:var(--ink)} footer code{color:var(--ink)}
   <div class="kpi">
     <div class="k1"><span>function roots</span><b>447</b><em>6,356 cell types</em></div>
     <div class="k1"><span>instances mapped</span><b>1.635 B</b><em>100 % of functional cells</em></div>
-    <div class="k1 e"><span>exact</span><b>32.1 %</b><em>2,863 types · 524,954,955</em></div>
-    <div class="k1 l"><span>likely</span><b>4.2 %</b><em>477 types · 68,849,879</em></div>
-    <div class="k1 a"><span>approx</span><b>63.0 %</b><em>2,723 types · 1,030,588,132</em></div>
-    <div class="k1 g"><span>gap</span><b>0.65 %</b><em>293 types · 10,691,995</em></div>
+    <div class="k1 e"><span>exact</span><b>32.1 %</b><em>2,863 types - 524,954,955</em></div>
+    <div class="k1 l"><span>likely</span><b>4.2 %</b><em>477 types - 68,849,879</em></div>
+    <div class="k1 a"><span>approx</span><b>63.0 %</b><em>2,723 types - 1,030,588,132</em></div>
+    <div class="k1 g"><span>gap</span><b>0.65 %</b><em>293 types - 10,691,995</em></div>
   </div>
   <div class="barwrap" style="margin-top:14px">
     <div class="bar" role="img" aria-label="32.1% exact, 4.2% likely, 63.0% approx, 0.65% gap by instance count">
@@ -187,7 +187,7 @@ footer b{color:var(--ink)} footer code{color:var(--ink)}
     <div class="card">
       <h4>SF4-only cell modifiers</h4>
       <span class="fig">29.7 % of instances</span>
-      <p><code>MV1…MV8</code> M1-variants (16.7 %), <code>PV</code> placement-variable (7.2 %) and the
+      <p><code>MV1...MV8</code> M1-variants (16.7 %), <code>PV</code> placement-variable (7.2 %) and the
       <code>POK</code> pin-optimization prefix (5.6 %) resolve to the plain base function. Pin-access and
       placement intent - the reason those cells exist - is lost. Expect different routability and congestion.</p>
     </div>
@@ -233,7 +233,7 @@ footer b{color:var(--ink)} footer code{color:var(--ink)}
       <button type="button" id="vRoot" aria-pressed="true">By function</button>
       <button type="button" id="vCell" aria-pressed="false">By cell</button>
     </div>
-    <input type="search" id="q" placeholder="search SF4 or N02 name…  NAND2, POKAOI22, SDFFQ4BS, CKLNQ" aria-label="Search" autocomplete="off">
+    <input type="search" id="q" placeholder="search SF4 or N02 name...  NAND2, POKAOI22, SDFFQ4BS, CKLNQ" aria-label="Search" autocomplete="off">
     <button class="fbtn" type="button" data-c="exact" aria-pressed="false">exact</button>
     <button class="fbtn" type="button" data-c="likely" aria-pressed="false">likely</button>
     <button class="fbtn" type="button" data-c="approx" aria-pressed="false">approx</button>
@@ -264,7 +264,7 @@ footer b{color:var(--ink)} footer code{color:var(--ink)}
   <code>SF4_to_N02_stdcell_mapping.md</code> / <code>.pptx</code> / <code>.confluence.xml</code>
   (the underlying function mapping and its caveats).</p>
   <p><b>Before you substitute anything:</b> N02 area for a given function is not proportional to SF4 area, drive
-  strengths do not correspond numerically (a SF4 <code>D2</code> ≠ an N02 <code>D2</code>), and the Vt mapping is
+  strengths do not correspond numerically (a SF4 <code>D2</code> != an N02 <code>D2</code>), and the Vt mapping is
   a rank correspondence. Size by timing.</p>
 </footer>
 </div>
@@ -331,7 +331,7 @@ function draw(){
   const sum=view.reduce((a,x)=>a+x[0],0);
   tb.innerHTML=view.slice(0,shown).map(rowHtml).join('')
     ||`<tr><td colspan="${HEAD[mode].length}" style="color:var(--ink3);font-family:var(--mono);font-size:12px">no match</td></tr>`;
-  tally.textContent=`${fmt(view.length)} ${mode==='root'?'functions':'cells'} · ${fmt(sum)} inst · ${(100*sum/TOT).toFixed(2)}%`;
+  tally.textContent=`${fmt(view.length)} ${mode==='root'?'functions':'cells'} - ${fmt(sum)} inst - ${(100*sum/TOT).toFixed(2)}%`;
   more.innerHTML=view.length>shown
     ?`<button class="fbtn" id="mb">show ${fmt(Math.min(PAGE*4,view.length-shown))} more of ${fmt(view.length-shown)}</button>`:'';
   const b=document.getElementById('mb'); if(b) b.onclick=()=>{shown+=PAGE*4;draw()};
